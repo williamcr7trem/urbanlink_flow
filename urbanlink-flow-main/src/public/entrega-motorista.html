@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<!DOCTYPE html>
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+ <head>
+  <meta charset="utf-8"/>
+  <title>
+   Gestão de Entregas - UrbanLink Flow
+  </title>
+  <link href="./css/dashboard.css" rel="stylesheet"/>
+  <link href="./css/funcionalidades.css" rel="stylesheet"/>
+ </head>
+ <body class="fundo-azul-claro" data-page="manage-deliveries" data-role="Administrador,Gestor">
+  <!-- CABEÇALHO INTERNO -->
+  <header class="cabecalho-interno">
+   <div class="logo">
+    <img alt="Logótipo UrbanLink" class="imagem-logo" src="./assets/logo.png"/>
+   </div>
+   <nav class="navegacao-topo">
+    <a href="inicial-admin.html">
+     Início
+    </a>
+    <a class="ativo" href="entrega-motorista.html">
+     Gestão de entregas
+    </a>
+    <a href="mapa-rotas.html">
+     Mapa e rotas
+    </a>
+    <a href="simulacoes.html">
+     Simulações
+    </a>
+   </nav>
+   <div class="perfil-usuario">
+    <img alt="Ícone" class="icone-img" src="./assets/avatar.svg"/>
+    <span>
+     Carregando perfil…
+    </span>
+   </div>
+  </header>
+  <main class="conteudo-dashboard">
+   <!-- TOPO DA PÁGINA -->
+   <div class="cabecalho-secao">
+    <div>
+     <span class="migalhas">
+      Gestão
+     </span>
+     <h2>
+      Gestão de entregas
+     </h2>
+     <p class="subtitulo-bloco">
+      Controle todo o ciclo de vida dos pedidos da plataforma.
+     </p>
+    </div>
+    <div class="botoes-topo">
+     <button class="botao botao-secundario" id="exportar-csv" type="button">
+      <img alt="" class="icone-img-inline" src="./assets/avatar.svg"/>
+      Exportar CSV
+     </button>
+     <button class="botao botao-primario" id="abrir-nova-entrega" type="button">
+      + Nova entrega
+     </button>
+     <a class="botao botao-secundario" href="simulacoes.html">
+      Simular cenários
+     </a>
+    </div>
+   </div>
+   <!-- ABAS DE STATUS -->
+   <div class="abas-status">
+    <button class="aba ativa" data-filtro="todos" type="button">
+     Todas
+     <span class="contador-aba">
+     </span>
+    </button>
+    <button class="aba" data-filtro="Pendente" type="button">
+     Pendentes
+     <span class="contador-aba">
+     </span>
+    </button>
+    <button class="aba" data-filtro="Em trânsito" type="button">
+     Em trânsito
+     <span class="contador-aba">
+     </span>
+    </button>
+    <button class="aba" data-filtro="Entregue" type="button">
+     Concluídas
+     <span class="contador-aba">
+     </span>
+    </button>
+    <button class="aba" data-filtro="Cancelada" type="button">
+     Canceladas
+     <span class="contador-aba">
+     </span>
+    </button>
+   </div>
+   <!-- BARRA DE FILTROS -->
+   <div class="barra-filtros">
+    <div class="campo-filtro flex-2">
+     <label>
+      Buscar
+     </label>
+     <input id="filtro-entregas" placeholder="Código, cliente ou endereço" type="text"/>
+    </div>
+    <div class="campo-filtro">
+     <label>
+      Status
+     </label>
+     <select id="filtro-status">
+      <option value="">
+       Todos os status
+      </option>
+      <option value="Pendente">
+       Pendente
+      </option>
+      <option value="Aguardando coleta">
+       Aguardando coleta
+      </option>
+      <option value="Em trânsito">
+       Em trânsito
+      </option>
+      <option value="Saiu para entrega">
+       Saiu para entrega
+      </option>
+      <option value="Entregue">
+       Entregue
+      </option>
+      <option value="Problema">
+       Problema
+      </option>
+      <option value="Cancelada">
+       Cancelada
+      </option>
+     </select>
+    </div>
+    <div class="campo-filtro">
+     <label>
+      Data
+     </label>
+     <select>
+      <option value="">
+       Qualquer data
+      </option>
+     </select>
+    </div>
+    <div class="campo-filtro">
+     <label>
+      Motorista
+     </label>
+     <select id="filtro-motorista">
+      <option value="">
+       Todos os motoristas
+      </option>
+     </select>
+    </div>
+    <button class="botao botao-secundario alinhar-fim" id="aplicar-filtros" type="button">
+     Filtrar
+    </button>
+   </div>
+   <!-- CARD DA TABELA -->
+   <div class="cartao-tabela-gestao">
+    <p class="texto-secundario">
+     Use o seletor de status em cada entrega para atualizar a operação.
+    </p>
+    <table class="tabela-pedidos tabela-alinhada">
+     <thead>
+      <tr>
+       <th>
+        <input type="checkbox"/>
+       </th>
+       <th>
+        Código
+       </th>
+       <th>
+        Cliente
+       </th>
+       <th>
+        Origem e destino
+       </th>
+       <th>
+        Janela
+       </th>
+       <th>
+        Motorista
+       </th>
+       <th>
+        Status
+       </th>
+       <th>
+       </th>
+      </tr>
+     </thead>
+     <tbody id="entregas-admin-body">
+     </tbody>
+    </table>
+    <!-- PAGINAÇÃO -->
+   </div>
+  </main>
+  <!-- MODAL: NOVA ENTREGA (Frame 1) -->
+  <div class="overlay-modal" id="modalNovaEntrega">
+   <div class="janela-modal">
+    <div class="topo-modal">
+     <div>
+      <h3>
+       Nova entrega
+      </h3>
+      <p>
+       Preencha os dados do pedido. Você pode atribuir o motorista depois.
+      </p>
+     </div>
+     <button class="fechar-modal">
+      ✕
+     </button>
+    </div>
+    <form class="formulario-modal" id="form-admin-entrega">
+     <div class="grupo-input">
+      <label>
+       Cliente
+      </label>
+      <select id="admin-cliente" name="cliente_id" required="">
+       <option>
+        Selecione um cliente
+       </option>
+      </select>
+     </div>
+     <div class="grupo-input">
+      <label>
+       Origem
+      </label>
+      <input class="input-desativado" name="origem" readonly="" type="text" value="Centro de distribuição cadastrado pela operação"/>
+     </div>
+     <div class="grupo-input">
+      <label>
+       Destino
+      </label>
+      <input id="admin-destino" name="destino" placeholder="CEP, rua, número e bairro" required="" type="text"/>
+     </div>
+     <div class="grupo-input">
+      <label for="admin-latitude">Latitude do destino (opcional)</label>
+      <input id="admin-latitude" min="-90" max="90" step="0.000001" placeholder="Ex.: -22.9068" type="number"/>
+     </div>
+     <div class="grupo-input">
+      <label for="admin-longitude">Longitude do destino (opcional)</label>
+      <input id="admin-longitude" min="-180" max="180" step="0.000001" placeholder="Ex.: -43.1729" type="number"/>
+     </div>
+     <div class="linha-form">
+      <div class="grupo-input">
+       <label>
+        Janela - Início
+       </label>
+       <input id="admin-janela-inicio" name="janela_inicio" type="text" value="09:00"/>
+      </div>
+      <div class="grupo-input">
+       <label>
+        Janela - Fim
+       </label>
+       <input id="admin-janela-fim" name="janela_fim" type="text" value="11:30"/>
+      </div>
+     </div>
+     <div class="grupo-input">
+      <label>
+       Motorista
+      </label>
+      <select id="admin-motorista" name="motorista_id">
+       <option>
+        Atribuir depois
+       </option>
+      </select>
+     </div>
+     <div class="grupo-input">
+      <label>
+       Observações para o motorista
+      </label>
+      <input id="admin-observacoes" name="observacoes" placeholder="Ex.: deixar com o porteiro" type="text"/>
+     </div>
+     <div class="grupo-input">
+      <label for="admin-tipo-veiculo">
+       Tipo de veículo
+      </label>
+      <select id="admin-tipo-veiculo" name="tipo_veiculo">
+       <option value="Moto">
+        Moto
+       </option>
+       <option value="Carro">
+        Carro
+       </option>
+       <option value="Van">
+        Van
+       </option>
+       <option value="Caminhão">
+        Caminhão
+       </option>
+       <option value="Elétrico">
+        Elétrico
+       </option>
+      </select>
+     </div>
+     <div class="grupo-input">
+      <label for="admin-veiculo">
+       Veículo (opcional)
+      </label>
+      <select id="admin-veiculo" name="veiculo_id">
+       <option value="">
+        Atribuir depois
+       </option>
+      </select>
+     </div>
+     <div class="botoes-modal">
+      <button class="botao botao-secundario" type="button">
+       Cancelar
+      </button>
+      <button class="botao botao-primario" type="submit">
+       Salvar entrega
+      </button>
+     </div>
+    </form>
+   </div>
+  </div>
+  <script>
+   function abrirModal() { document.getElementById('modalNovaEntrega').style.display = 'flex'; }
+        function fecharModal() { document.getElementById('modalNovaEntrega').style.display = 'none'; }
+  </script>
+  <script defer="True" src="./js/app.js">
+  </script>
+ </body>
+</html>

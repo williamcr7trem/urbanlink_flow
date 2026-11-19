@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+ <head>
+  <meta charset="utf-8"/>
+  <title>
+   Login Entregador - UrbanLink
+  </title>
+  <link href="./css/autenticacao.css" rel="stylesheet"/>
+  <link href="./css/funcionalidades.css" rel="stylesheet"/>
+ </head>
+ <body data-page="login" data-role="Motorista">
+  <main class="area-autenticacao">
+   <div class="cartao-autenticacao">
+    <h1 class="titulo-autenticacao">
+     Entrar na plataforma
+    </h1>
+    <p class="subtitulo-autenticacao">
+     Use seu e-mail e senha para acessar o UrbanLink Flow.
+    </p>
+    <div class="etiqueta-tipo-usuario">
+     Entregador
+    </div>
+    <form autocomplete="on" class="formulario" id="form-login">
+     <div class="grupo-form">
+      <label for="email-login">
+       E-mail
+      </label>
+      <input id="email-login" name="email" placeholder="voce@email.com" required="" type="email"/>
+     </div>
+     <div class="grupo-form">
+      <label for="senha-login">
+       Senha
+      </label>
+      <input id="senha-login" name="senha" placeholder="Digite sua senha" required="" type="password"/>
+     </div>
+     <div class="opcoes-login">
+      <div class="grupo-checkbox">
+       <input id="lembrar" type="checkbox"/>
+       <label class="texto-checkbox" for="lembrar">
+        Lembrar de mim
+       </label>
+      </div>
+      <a class="link-esqueceu" data-aviso="A redefinição automática não está disponível. Solicite orientação ao administrador responsável." href="#">
+       Esqueci minha senha
+      </a>
+     </div>
+     <!-- Link como botão -->
+     <button class="botao botao-primario" type="submit">
+      Entrar
+     </button>
+    </form>
+   </div>
+  </main>
+  <script defer="True" src="./js/app.js">
+  </script>
+ </body>
+</html>

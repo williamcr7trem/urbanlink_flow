@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+ <head>
+  <meta charset="utf-8"/>
+  <title>
+   Cadastro - UrbanLink
+  </title>
+  <!-- Aqui chamaria o seu global.css também -->
+  <link href="./css/style.css" rel="stylesheet"/>
+  <link href="./css/autenticacao.css" rel="stylesheet"/>
+  <link href="./css/funcionalidades.css" rel="stylesheet"/>
+ </head>
+ <body data-page="cadastro" data-role="Cliente">
+  <!-- Área que centraliza o conteúdo no ecrã -->
+  <main class="area-autenticacao">
+   <!-- Cartão com borda azul de destaque -->
+   <div class="cartao-autenticacao cartao-destaque-azul">
+    <h1 class="titulo-autenticacao">
+     Crie a sua conta para começar
+    </h1>
+    <div class="etiqueta-tipo-usuario">
+     Cliente
+    </div>
+    <form class="formulario" id="form-cadastro">
+     <!-- Campo de linha inteira -->
+     <div class="grupo-form">
+      <label for="nome">
+       Nome completo
+      </label>
+      <input id="nome" name="nome" placeholder="Como devemos te chamar?" required="" type="text"/>
+     </div>
+     <!-- Campos divididos na mesma linha -->
+     <div class="linha-form">
+      <div class="grupo-form">
+       <label for="cpf">
+        CPF
+       </label>
+       <input id="cpf" name="cpf" placeholder="000.000.000-00" type="text"/>
+      </div>
+      <div class="grupo-form">
+       <label for="cep">
+        CEP
+       </label>
+       <input id="cep" name="cep" placeholder="00000-000" type="text"/>
+      </div>
+     </div>
+     <div class="grupo-form">
+      <label for="email">
+       E-mail
+      </label>
+      <input id="email" name="email" placeholder="voce@email.com" required="" type="email"/>
+     </div>
+     <div class="grupo-form">
+      <label for="celular">
+       Número de celular
+      </label>
+      <input id="celular" name="telefone" placeholder="(21) 90000-0000" type="tel"/>
+     </div>
+     <div class="linha-form">
+      <div class="grupo-form">
+       <label for="senha">
+        Nova senha
+       </label>
+       <input id="senha" name="senha" placeholder="Mínimo de 8 caracteres" required="" type="password"/>
+      </div>
+      <div class="grupo-form">
+       <label for="confirmar-senha">
+        Confirmar senha
+       </label>
+       <input id="confirmar-senha" name="confirmar_senha" placeholder="Repita a senha" required="" type="password"/>
+      </div>
+     </div>
+     <div class="grupo-checkbox">
+      <input checked="" id="termos" required="" type="checkbox"/>
+      <label class="texto-checkbox" for="termos">
+       Li e aceito os termos de uso e a política de privacidade
+      </label>
+     </div>
+     <button class="botao botao-primario" type="submit">
+      Criar minha conta
+     </button>
+    </form>
+   </div>
+  </main>
+  <script defer="True" src="./js/app.js">
+  </script>
+ </body>
+ &lt;/html
+</html>

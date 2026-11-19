@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simulação de Cenários - UrbanLink Flow</title>
+  <link rel="stylesheet" href="./css/dashboard.css">
+  <link rel="stylesheet" href="./css/funcionalidades.css">
+</head>
+<body class="fundo-cinza" data-page="simulations" data-role="Administrador,Gestor">
+  <header class="cabecalho-interno">
+    <div class="logo">
+      <img alt="Logótipo UrbanLink" class="imagem-logo" src="./assets/logo.png">
+    </div>
+    <nav class="navegacao-topo">
+      <a href="inicial-admin.html">Início</a>
+      <a href="entrega-motorista.html">Gestão de entregas</a>
+      <a class="ativo" href="simulacoes.html">Simulações</a>
+      <a href="mapa-rotas.html">Mapa e rotas</a>
+    </nav>
+    <div class="perfil-usuario">
+      <img alt="Ícone de utilizador" class="icone-img" src="./assets/avatar.svg">
+      <span>Carregando perfil…</span>
+    </div>
+  </header>
+  <main class="conteudo-dashboard">
+    <div class="cabecalho-secao">
+      <div>
+        <span class="migalhas">Operação / Planejamento</span>
+        <h2>Simulação de cenários</h2>
+        <p class="subtitulo-bloco">Compare o tempo estimado de uma rota sob diferentes níveis de congestionamento.</p>
+      </div>
+    </div>
+    <div class="layout-duas-colunas">
+      <section class="bloco-conteudo">
+        <h3>Novo cenário</h3>
+        <form id="form-simulacao" class="formulario">
+          <div class="grupo-form">
+            <label for="simulacao-nome">Nome do cenário</label>
+            <input id="simulacao-nome" name="nome" type="text" maxlength="120" placeholder="Ex.: Operação da manhã">
+          </div>
+          <div class="grupo-form">
+            <label for="simulacao-entregas">Entregas pendentes (selecione de 1 a 50)</label>
+            <select id="simulacao-entregas" name="entrega_ids" multiple size="7" required></select>
+            <small class="texto-secundario">Somente entregas com latitude e longitude de destino podem ser simuladas.</small>
+          </div>
+          <div class="linha-form">
+            <div class="grupo-form">
+              <label for="simulacao-lat">Latitude de partida</label>
+              <input id="simulacao-lat" type="number" step="any" required placeholder="-22.9068">
+            </div>
+            <div class="grupo-form">
+              <label for="simulacao-lon">Longitude de partida</label>
+              <input id="simulacao-lon" type="number" step="any" required placeholder="-43.1729">
+            </div>
+          </div>
+          <div class="linha-form">
+            <div class="grupo-form">
+              <label for="simulacao-velocidade">Velocidade média (km/h)</label>
+              <input id="simulacao-velocidade" type="number" min="5" max="120" value="30" required>
+            </div>
+            <div class="grupo-form">
+              <label for="simulacao-congestionamento">Fator de congestionamento</label>
+              <select id="simulacao-congestionamento">
+                <option value="1">Baixo (1,0×)</option>
+                <option value="1.5" selected>Moderado (1,5×)</option>
+                <option value="2">Alto (2,0×)</option>
+                <option value="3">Crítico (3,0×)</option>
+              </select>
+            </div>
+          </div>
+          <button class="botao botao-primario total-largura" type="submit">Calcular e salvar cenário</button>
+        </form>
+      </section>
+      <section class="bloco-conteudo">
+        <h3>Como a estimativa é calculada</h3>
+        <p>A plataforma organiza as paradas pelo método do vizinho mais próximo e calcula a distância geográfica aproximada com a fórmula de Haversine.</p>
+        <p>O tempo-base considera a velocidade média informada. O cenário aplica o fator de congestionamento selecionado sobre esse tempo.</p>
+        <p class="texto-secundario">Esta simulação é matemática e não consulta trânsito ao vivo nem considera ruas, pedágios, restrições de circulação ou geocodificação automática.</p>
+        <div id="resultado-simulacao" class="estado-vazio">Preencha os dados para gerar uma simulação.</div>
+      </section>
+    </div>
+    <section class="bloco-conteudo mt-20">
+      <h3>Simulações salvas</h3>
+      <div class="table-responsive">
+        <table class="tabela-pedidos">
+          <thead><tr><th>Cenário</th><th>Distância</th><th>Tempo-base</th><th>Tempo simulado</th><th>Acréscimo</th><th>Criado em</th><th></th></tr></thead>
+          <tbody id="simulacoes-salvas"><tr><td colspan="7" class="estado-vazio">Carregando…</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <script src="./js/app.js" defer></script>
+</body>
+</html>

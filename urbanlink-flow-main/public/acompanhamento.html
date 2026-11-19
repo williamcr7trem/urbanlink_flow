@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+ <head>
+  <meta charset="utf-8"/>
+  <title>
+   Acompanhamento - UrbanLink
+  </title>
+  <link href="./css/dashboard.css" rel="stylesheet"/>
+  <link href="./css/funcionalidades.css" rel="stylesheet"/>
+ </head>
+ <body class="fundo-cinza" data-page="tracking" data-role="Cliente">
+  <!-- CABEÇALHO INTERNO -->
+  <header class="cabecalho-interno">
+   <div class="logo">
+    <img alt="Logotipo" class="imagem-logo" src="./assets/logo.png"/>
+   </div>
+   <nav class="navegacao-topo">
+    <a href="inicial-cliente.html">
+     Início
+    </a>
+    <a class="ativo" href="acompanhamento.html">
+     Acompanhamento
+    </a>
+    <a href="atendimento-cliente.html">
+     Atendimento
+    </a>
+    <a href="patrocinadores.html">
+     Patrocinadores
+    </a>
+   </nav>
+   <div class="perfil-usuario">
+    <img alt="Ícone" class="icone-img" src="./assets/avatar.svg"/>
+    <span>
+     Carregando perfil…
+    </span>
+   </div>
+  </header>
+  <main class="conteudo-dashboard">
+   <!-- CABEÇALHO DA PÁGINA -->
+   <form class="cabecalho-acompanhamento campo-api" id="form-rastreamento">
+    <div>
+     <h2>
+      Acompanhe sua entrega
+     </h2>
+     <p class="subtitulo-pagina">
+      —
+     </p>
+    </div>
+    <input class="input-busca-pequeno" id="codigo-rastreamento" name="codigo" placeholder="Digite o código do pedido" type="text"/>
+    <button class="botao botao-primario" type="submit">
+     Rastrear entrega
+    </button>
+   </form>
+   <div class="layout-grid-dashboard">
+    <!-- COLUNA ESQUERDA: MAPA E LINHA DO TEMPO -->
+    <div class="coluna-esq">
+     <!-- Área do Mapa -->
+     <div class="area-mapa">
+      <img alt="Mapa" class="imagem-mapa" src="./assets/mapa-esquematico.svg"/>
+      <div class="balao-flutuante">
+       <small>
+        Status da entrega
+       </small>
+       <strong>
+        Aguardando código
+       </strong>
+      </div>
+     </div>
+     <!-- Linha do Tempo -->
+     <div class="secao-branca">
+      <h3>
+       Por onde seu pedido já passou
+      </h3>
+      <div class="linha-tempo" id="eventos-rastreamento">
+      </div>
+     </div>
+    </div>
+    <!-- COLUNA DIREITA: CARTÕES DE ESTADO -->
+    <div class="coluna-dir">
+     <!-- Cartão Escuro -->
+     <div class="cartao-status-escuro">
+      <p>
+       Situação atual
+      </p>
+      <h2>
+       —
+      </h2>
+      <div class="barra-progresso-escura">
+       <div class="preenchimento" style="width:0%;">
+       </div>
+      </div>
+      <p class="rodape-progresso">
+       As atualizações serão exibidas quando o código for consultado.
+      </p>
+     </div>
+     <!-- Cartão Motorista -->
+     <div class="cartao-info-lateral">
+      <strong>
+       Quem está com o seu pedido
+      </strong>
+      <div class="perfil-motorista mt-15">
+       <div class="icone-avatar com-letra">
+        M
+       </div>
+       <div>
+        <p class="nome-motorista">
+         Motorista não atribuído
+        </p>
+        <p class="veiculo-motorista">
+         Motorista não atribuído
+        </p>
+       </div>
+      </div>
+      <div class="botoes-acao mt-15">
+       <button class="botao botao-primario" id="rastrear-ligar" type="button" disabled>
+        Ligar
+       </button>
+       <button class="botao botao-secundario" id="rastrear-mensagem" type="button" disabled>
+        Mensagem
+       </button>
+      </div>
+     </div>
+     <!-- Cartão Detalhes -->
+     <div class="cartao-info-lateral">
+      <strong>
+       Detalhes da entrega
+      </strong>
+      <div class="item-detalhe mt-15">
+       <small>
+        Endereço
+       </small>
+       <p>
+        —
+       </p>
+      </div>
+      <div class="item-detalhe">
+       <small>
+        Quem recebe
+       </small>
+       <p>
+        —
+       </p>
+      </div>
+      <div class="item-detalhe">
+       <small>
+        Itens
+       </small>
+       <p>
+        —
+       </p>
+      </div>
+     </div>
+    </div>
+   </div>
+  </main>
+  <script defer="True" src="./js/app.js">
+  </script>
+ </body>
+</html>

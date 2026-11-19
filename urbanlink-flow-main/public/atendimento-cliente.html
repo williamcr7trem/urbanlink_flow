@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+ <head>
+  <meta charset="utf-8"/>
+  <title>
+   Atendimento ao Cliente - UrbanLink
+  </title>
+  <link href="./css/dashboard.css" rel="stylesheet"/>
+  <link href="./css/funcionalidades.css" rel="stylesheet"/>
+ </head>
+ <body data-page="support" data-role="Cliente,Motorista,Administrador,Gestor">
+  <!-- CABEÇALHO INTERNO -->
+  <header class="cabecalho-interno">
+   <div class="logo">
+    <img alt="Logótipo UrbanLink" class="imagem-logo" src="./assets/logo.png"/>
+   </div>
+   <nav class="navegacao-topo">
+    <a href="inicial-cliente.html">
+     Início
+    </a>
+    <a href="acompanhamento.html">
+     Acompanhamento
+    </a>
+    <a class="ativo" href="atendimento-cliente.html">
+     Atendimento
+    </a>
+    <a href="patrocinadores.html">
+     Patrocinadores
+    </a>
+   </nav>
+   <div class="perfil-usuario">
+    <img alt="Ícone" class="icone-img" src="./assets/avatar.svg"/>
+    <span>
+     Carregando perfil…
+    </span>
+   </div>
+  </header>
+  <!-- ÁREA SUPERIOR (Branca) -->
+  <section class="hero-atendimento">
+   <div class="conteudo-centralizado">
+    <h1>
+     Atendimento ao cliente
+    </h1>
+    <p>
+     Fale com a equipe ou consulte as perguntas frequentes antes de abrir um chamado.
+    </p>
+    <input class="input-busca-grande" id="assunto-chamado" name="assunto" placeholder="Assunto do atendimento" type="text"/>
+   </div>
+  </section>
+  <!-- ÁREA INFERIOR (Fundo Azul Claro) -->
+  <main class="area-azul-claro">
+   <div class="conteudo-centralizado">
+    <!-- CARTÕES DE CONTACTO -->
+    <div class="grid-contatos">
+     <div class="cartao-contato ativo">
+      <img alt="Chat" class="icone-img" src="./assets/avatar.svg"/>
+      <div>
+       <strong>
+        Atendimento por mensagens
+       </strong>
+       <p>
+        Envie uma solicitação e acompanhe a resposta da equipe nesta tela.
+       </p>
+      </div>
+     </div>
+     <div class="cartao-contato">
+      <img alt="Telefone" class="icone-img" src="./assets/avatar.svg"/>
+      <div>
+       <strong>
+        Telefone
+       </strong>
+       <p>
+        Contato telefônico não configurado neste ambiente.
+       </p>
+      </div>
+     </div>
+     <div class="cartao-contato">
+      <img alt="Email" class="icone-img" src="./assets/avatar.svg"/>
+      <div>
+       <strong>
+        Email
+       </strong>
+       <p>
+        Use o formulário de mensagens desta página.
+       </p>
+      </div>
+     </div>
+    </div>
+    <div class="layout-duas-colunas-atendimento">
+     <!-- COLUNA ESQUERDA: CHAT -->
+     <div class="janela-chat">
+      <div class="cabecalho-chat">
+       <img alt="Gerente" class="icone-avatar" src="./assets/avatar.svg"/>
+       <div>
+        <strong>
+         Gerente da UrbanLink • Atendimento
+        </strong>
+        <p class="status-online">
+         Atendimento por chamados
+        </p>
+       </div>
+      </div>
+      <div class="corpo-chat" id="historico-chamados">
+      </div>
+      <form class="rodape-chat" id="form-chamado">
+       <input id="mensagem-chamado" minlength="8" name="mensagem" placeholder="Digite sua mensagem" required="" type="text"/>
+       <button class="botao botao-primario" type="submit">
+        Enviar
+       </button>
+      </form>
+     </div>
+     <!-- COLUNA DIREITA: FAQ -->
+     <div class="area-faq">
+      <h2 class="titulo-faq">
+       Perguntas frequentes
+      </h2>
+      <div class="lista-faq">
+       <div class="item-faq">
+        <span>
+         Como faço para acompanhar a minha entrega?
+        </span>
+        <span class="icone-mais">
+         +
+        </span>
+       </div>
+       <div class="item-faq">
+        <span>
+         Posso alterar o endereço depois de fazer o pedido?
+        </span>
+        <span class="icone-mais">
+         +
+        </span>
+       </div>
+       <div class="item-faq">
+        <span>
+         O que fazer se não tiver alguém para receber?
+        </span>
+        <span class="icone-mais">
+         +
+        </span>
+       </div>
+       <div class="item-faq">
+        <span>
+         Como funciona a política de devolução?
+        </span>
+        <span class="icone-mais">
+         +
+        </span>
+       </div>
+       <div class="item-faq">
+        <span>
+         Esqueci minha senha. E agora?
+        </span>
+        <span class="icone-mais">
+         +
+        </span>
+       </div>
+      </div>
+      <div class="cartao-horarios">
+       <strong>
+        Horários de atendimento
+       </strong>
+       <p>
+        Segunda a sexta, das 7h às 20h. Sábados, das 10h às 14h.
+       </p>
+      </div>
+     </div>
+    </div>
+   </div>
+  </main>
+  <script defer="True" src="./js/app.js">
+  </script>
+ </body>
+</html>

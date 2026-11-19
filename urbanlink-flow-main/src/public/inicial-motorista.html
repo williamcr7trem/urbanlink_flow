@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Painel do Motorista - UrbanLink Flow
+  </title>
+  <link href="./css/dashboard.css" rel="stylesheet"/>
+  <link href="./css/funcionalidades.css" rel="stylesheet"/>
+ </head>
+ <body class="fundo-cinza" data-page="driver-dashboard" data-role="Motorista">
+  <!-- CABEÇALHO INTERNO -->
+  <header class="cabecalho-interno">
+   <div class="logo">
+    <img alt="Logótipo UrbanLink" class="imagem-logo" src="./assets/logo.png"/>
+   </div>
+   <nav class="navegacao-topo">
+    <a href="inicial-motorista.html">
+     Início
+    </a>
+    <a class="ativo" href="mapa-rotas.html">
+     Mapa e rotas
+    </a>
+    <a href="atendimento-motorista.html">
+     Atendimento
+    </a>
+   </nav>
+   <div class="perfil-usuario">
+    <img alt="Ícone de utilizador" class="icone-img" src="./assets/avatar.svg"/>
+    <span>
+     Carregando perfil…
+    </span>
+   </div>
+  </header>
+  <main class="conteudo-dashboard">
+   <!-- CABEÇALHO DA ROTA COM TOGGLE ONLINE -->
+   <div class="topo-rota-ativa">
+    <div>
+     <span class="migalhas">
+      Início
+     </span>
+     <h2>
+      Rota de hoje
+     </h2>
+     <p class="subtitulo-bloco">
+      Siga a sequência de paradas e confirme cada entrega.
+     </p>
+    </div>
+    <div class="toggle-status-online">
+     <span class="ponto-verde-indicador">
+     </span>
+     <strong>
+      Status de atividade
+     </strong>
+    </div>
+   </div>
+   <!-- CARDS DE MÉTRICAS RÁPIDAS -->
+   <div class="grid-3-colunas mt-20">
+    <div class="cartao-info">
+     <small>
+      Entregas concluídas
+     </small>
+     <p class="numero-metrica">
+      0
+     </p>
+     <span class="subtexto-cartao">
+      no total
+     </span>
+    </div>
+    <div class="cartao-info">
+     <small>
+      Previsão do término (ETA)
+     </small>
+     <p class="numero-metrica">
+      —
+     </p>
+     <span class="subtexto-cartao">
+      no horário previsto
+     </span>
+    </div>
+    <div class="cartao-info">
+     <small>
+      Próxima parada em
+     </small>
+     <p class="numero-metrica">
+      —
+     </p>
+     <span class="subtexto-cartao">
+      de distância
+     </span>
+    </div>
+   </div>
+   <!-- LAYOUT CENTRAL DA ROTA: MAPA + PAINEL DIREITO -->
+   <div class="layout-grid-dashboard mt-20">
+    <!-- MAPA DA ROTA -->
+    <div class="coluna-esq">
+     <div class="container-mapa-rota">
+      <div class="topo-mapa-info">
+       <strong>
+        Rota do dia
+       </strong>
+       <small>
+        Sem rota calculada
+       </small>
+      </div>
+      <img alt="Mapa esquemático da região" class="imagem-mapa" src="./assets/mapa-esquematico.svg"/>
+     </div>
+    </div>
+    <!-- PAINEL DIREITO: PARADA ATUAL E SEQUÊNCIA -->
+    <div class="coluna-dir">
+     <!-- CARD PARADA ATUAL -->
+     <div class="cartao-parada-atual">
+      <div class="cabecalho-parada">
+       <span class="tag-proxima">
+        PRÓXIMA PARADA
+       </span>
+       <span class="badge badge-azul">
+        Chega em —
+       </span>
+      </div>
+      <h2 class="endereco-parada">
+       Aguardando entrega atribuída
+      </h2>
+      <div class="info-cliente-linha mt-10">
+       <div>
+        <small>
+         Cliente
+        </small>
+        <p>
+         <strong>
+          —
+         </strong>
+        </p>
+       </div>
+       <img alt="Ligar" class="icone-img btn-icone-chamada" src="./assets/avatar.svg"/>
+      </div>
+      <div class="horario-limite mt-10">
+       Janela de entrega: não informada
+      </div>
+      <button class="botao botao-secundario total-largura mt-15" id="driver-arrival" type="button">
+       Cheguei ao destino
+      </button>
+      <button class="botao botao-primario total-largura mt-10" id="driver-confirm" type="button">
+       Confirmar entrega
+      </button>
+     </div>
+     <!-- CARD SEQUÊNCIA DE PARADAS -->
+     <div class="secao-branca mt-20">
+      <h4 class="titulo-cartao mb-15">
+       Sequência de paradas
+      </h4>
+      <div class="lista-sequencia-paradas">
+      </div>
+     </div>
+    </div>
+   </div>
+  </main>
+  <script defer="True" src="./js/app.js">
+  </script>
+ </body>
+</html>
